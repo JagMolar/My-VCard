@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Facades\DB;
 
-use App\User;
+use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use DataTables,Auth;
