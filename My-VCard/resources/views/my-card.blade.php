@@ -29,6 +29,7 @@
                         <button id="download">
                             Download Card
                         </button>
+                        <a class="btn btn-primary" href={{url('my-card/send')}}>My card PDF</a>
                         
                         {{-- Internal cards  --}}                      
                             {{-- Internal card view  --}}

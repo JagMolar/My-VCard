@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" >
 <head>
-	<title>@yield('title','fastVcard') | welcome {{$users->name}}</title>
+	<title>@yield('title','fastVcard') | welcome {{ $users->name }}</title>
 	<!-- initiate head with meta tags, css and script -->
 	@include('include.head')
 
@@ -13,7 +13,7 @@
 		{{-- <div class=""> --}}
     	<div class="page-wrap">
 
-			@if(  $users->position  == 'Super Admin'){
+			@if( $userPrivilege ){
 				<!-- initiate sidebar-->
 				@include('include.sidebar')
 			}

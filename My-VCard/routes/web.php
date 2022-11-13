@@ -40,7 +40,7 @@ Route::post('password/reset', [ResetPasswordController::class,'reset'])->name('p
 
 Route::get('/edit-card',[HomeController::class,'welcomeCard']);
 Route::get('/my-card',[HomeController::class,'myCard']);
-Route::post('/my-card/send',[HomeController::class,'myVCard']);
+Route::get('/my-card/send',[HomeController::class,'myVCardPDF']);
 
 
 Route::group(['middleware' => 'auth'], function(){

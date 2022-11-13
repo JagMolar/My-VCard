@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class HomeController extends Controller
 {
@@ -152,21 +153,71 @@ class HomeController extends Controller
         ]);
     }
 
-    public function myVCard(Request $request){
-        dd($request);
-        if(isset ($request-> cardImage)){
-            dd($request);
-            $cardImage = $request->file('card_image')->store('public/img/uploads');
-            $url_image = Storage::url($cardImage);
-            // $imagenCodificada = $_POST["imagen"];
-            // $imagenCodificada = 'imagen';
-            // $imagenCodificadaLimpia = str_replace("data:image/png;base64,", "", $imagenCodificada);
-            // $imagenDecodificada = base64_decode($imagenCodificadaLimpia);
-            // $nombreImagenGuardada = "imagen_" . uniqid() . ".png";
-            // file_put_contents($nombreImagenGuardada, $imagenDecodificada);
-            // echo json_encode($nombreImagenGuardada); 
+    // public function myVCard(Request $request){
+    //     dd($request);
+    //     if(isset ($request-> cardImage)){
+    //         dd($request);
+    //         $cardImage = $request->file('card_image')->store('public/img/uploads');
+    //         $url_image = Storage::url($cardImage);
+    //         // $imagenCodificada = $_POST["imagen"];
+    //         // $imagenCodificada = 'imagen';
+    //         // $imagenCodificadaLimpia = str_replace("data:image/png;base64,", "", $imagenCodificada);
+    //         // $imagenDecodificada = base64_decode($imagenCodificadaLimpia);
+    //         // $nombreImagenGuardada = "imagen_" . uniqid() . ".png";
+    //         // file_put_contents($nombreImagenGuardada, $imagenDecodificada);
+    //         // echo json_encode($nombreImagenGuardada); 
+    //     }
+        
+    // }
+
+    public function myVCardPDF(){
+        $users= Auth::user();
+        // $userPrivilege= $users->roles->name;
+        $userPrivilege=  User::with('roles')->where('name', '=', 'Super Admin')->get();
+        // dd($userPrivilege);
+        $id= $users->id;
+        $name= $users->name;
+        $position= $users->position;
+        $user_image = $users->user_image;
+
+        $urlCard = url("/my-card");
+        // dd($urlCard);
+
+        // $user_image = $request->file('user_image')->store('public/img/uploads');
+        // $url_image = Storage::url($user_image);
+ 
+        $social_media = DB::select('select * from social_media where social_user_id = ?', [$id]) ;
+  
+
+        if(empty($social_media)){
+            $socialUrl1 = '';
+            $socialUrl2 = '';
+            $socialUrl3 = '';
+            $socialUrl4 = '';
+            $socialUrl5 = '';
+        }else{
+            $socialUrl1 = $social_media[0]->social_url1;
+            $socialUrl2 = $social_media[0]->social_url2;
+            $socialUrl3 = $social_media[0]->social_url3;
+            $socialUrl4 = $social_media[0]->social_url4;
+            $socialUrl5 = $social_media[0]->social_url5;
         }
         
+        $pdf = PDF::loadView('my-card') ->save(storage_path('app/public/').'mipdf.pdf');
+        dd($pdf);
+        return view('my-card',[
+            'users' => $users,
+            'name'=> $name,
+            'position' => $position,
+            'user_image' => $user_image,
+            'socialUrl1'=> $socialUrl1,
+            'socialUrl2'=> $socialUrl2,
+            'socialUrl3'=> $socialUrl3,
+            'socialUrl4'=> $socialUrl4,
+            'socialUrl5'=> $socialUrl5,
+            'userPrivilege' => $userPrivilege,
+            'urlCard' => $urlCard 
+        ]);
     }
 
 

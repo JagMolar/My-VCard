@@ -289,11 +289,11 @@ class UserController extends Controller
                 // dd($position);
             
 
-                // $update = $user->update([
-                //     'name' => $name,
-                //     'position' => $position,
-                //     'user_image' => $url_image,
-                // ]);
+                $update = $user->update([
+                    'name' => $name,
+                    'position' => $position,
+                    'user_image' => $url_image,
+                ]);
                 // dd($update);
             }
                 $socialUrl1 = $request->socialUrl1;
@@ -315,9 +315,14 @@ class UserController extends Controller
                 }
             // dd($user);
             /*DESCOMENTAR TRAS VERIFICAR EL RESTO DE UPDATES*/
+            
+            // $name = $request->name;
+            // $position = $request->position;
+            // dd($position);
             // $update = $user->update([
             //     'name' => $name,
-            //     'position' => $userPosition,
+            //     'position' => $position,
+            //     'user_image' => $image_url
             // ]);
 
             // if(isset($request->userImage)){
