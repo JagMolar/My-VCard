@@ -134,11 +134,25 @@
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel doloremque deleniti eius! Neque officiis 
                             dignissimos, ipsum id nihil quia suscipit modi pariatur maiores optio soluta, minus adipisci, eius est dolores!
                         </p>
-                        <a class="btn btn-primary" href={{url('my-card')}}>My card</a>
+                        {{-- <a class="btn btn-primary" href={{url('my-card')}}>My card</a> --}}
+
+                        {{-- bloque de enlaces  --}}
+                        <div class="container-flex"
+                            style=" display:flex;  align-items:center; justify-content:center; margin:1rem; padding:1rem;">   
+                        {{-- <div class="m-2 d-flex justify-content-center"> --}}
+                            <a class="btn btn-primary m-1" role="button" href={{url('my-card')}}>My card</a>
+
+                            <button class="btn btn-primary m-1"  id="download">
+                                Download Card
+                            </button>                       
+                            {{-- <a class="btn btn-primary" href="{{ URL::to('/qrcode/pdf') }}">Convertir a PDF</a> --}}
+                            <a class="btn btn-primary m-1" role="button" href={{url('my-card/send')}}>Convertir a PDF</a>
+                        </div>
+                        
                         <h5 class="card-title">Card preview</h5>
                         {{-- Internal cards  --}}                      
                             {{-- Internal card view  --}}
-                            <div class="card" style="background: url('/img/degradate-background.png'); background-size:cover;">
+                            <div id="cardQr" class="card" style="background: url('/img/degradate-background.png'); background-size:cover;">
                                 <div class="card-body preview">
                                         @if ( $users->user_image == null)
                                             <img src="{{ asset('/img/superadmin.jpg') }}"

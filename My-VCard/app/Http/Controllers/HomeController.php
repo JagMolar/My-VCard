@@ -171,6 +171,7 @@ class HomeController extends Controller
     // }
 
     public function myVCardPDF(){
+        // dd('pdf');
         $users= Auth::user();
         // $userPrivilege= $users->roles->name;
         $userPrivilege=  User::with('roles')->where('name', '=', 'Super Admin')->get();
@@ -195,29 +196,56 @@ class HomeController extends Controller
             $socialUrl3 = '';
             $socialUrl4 = '';
             $socialUrl5 = '';
+            $data = [
+                'id' => $id,
+                'name' => $name,
+                'position' => $position,
+                'user_image' => $user_image,
+                'urlCard' => $urlCard,
+                'socialUrl1' => $socialUrl1,
+                'socialUrl2' => $socialUrl2,
+                'socialUrl4' => $socialUrl4,
+                'socialUrl4' => $socialUrl4,
+                'socialUrl5' => $socialUrl5
+            ];
         }else{
             $socialUrl1 = $social_media[0]->social_url1;
             $socialUrl2 = $social_media[0]->social_url2;
             $socialUrl3 = $social_media[0]->social_url3;
             $socialUrl4 = $social_media[0]->social_url4;
             $socialUrl5 = $social_media[0]->social_url5;
+            $data = [
+                'id' => $id,
+                'name' => $name,
+                'position' => $position,
+                'user_image' => $user_image,
+                'urlCard' => $urlCard,
+                'socialUrl1' => $socialUrl1,
+                'socialUrl2' => $socialUrl2,
+                'socialUrl4' => $socialUrl4,
+                'socialUrl4' => $socialUrl4,
+                'socialUrl5' => $socialUrl5
+            ];
         }
-        
-        $pdf = PDF::loadView('my-card') ->save(storage_path('app/public/').'mipdf.pdf');
-        dd($pdf);
-        return view('my-card',[
-            'users' => $users,
-            'name'=> $name,
-            'position' => $position,
-            'user_image' => $user_image,
-            'socialUrl1'=> $socialUrl1,
-            'socialUrl2'=> $socialUrl2,
-            'socialUrl3'=> $socialUrl3,
-            'socialUrl4'=> $socialUrl4,
-            'socialUrl5'=> $socialUrl5,
-            'userPrivilege' => $userPrivilege,
-            'urlCard' => $urlCard 
-        ]);
+        // dd($data);
+        //NO ENTRA A CREAR LA VISTA!!
+        $pdf = PDF::loadView('my-card', $data)
+        ->save(storage_path('app/public/').'{{$name}}'+'_VCard.pdf');
+        dd('pdf');
+        // return view('my-card',[
+        //     'users' => $users,
+        //     'name'=> $name,
+        //     'position' => $position,
+        //     'user_image' => $user_image,
+        //     'socialUrl1'=> $socialUrl1,
+        //     'socialUrl2'=> $socialUrl2,
+        //     'socialUrl3'=> $socialUrl3,
+        //     'socialUrl4'=> $socialUrl4,
+        //     'socialUrl5'=> $socialUrl5,
+        //     'userPrivilege' => $userPrivilege,
+        //     'urlCard' => $urlCard 
+        // ]);
+        return redirect()->back();
     }
 
 
