@@ -138,19 +138,32 @@ class HomeController extends Controller
         }
         
 
-        return view('my-card',[
-            'users' => $users,
-            'name'=> $name,
-            'position' => $position,
-            'user_image' => $user_image,
-            'socialUrl1'=> $socialUrl1,
-            'socialUrl2'=> $socialUrl2,
-            'socialUrl3'=> $socialUrl3,
-            'socialUrl4'=> $socialUrl4,
-            'socialUrl5'=> $socialUrl5,
-            'userPrivilege' => $userPrivilege,
-            'urlCard' => $urlCard 
-        ]);
+        // return view('my-card',[
+        //     'users' => $users,
+        //     'name'=> $name,
+        //     'position' => $position,
+        //     'user_image' => $user_image,
+        //     'socialUrl1'=> $socialUrl1,
+        //     'socialUrl2'=> $socialUrl2,
+        //     'socialUrl3'=> $socialUrl3,
+        //     'socialUrl4'=> $socialUrl4,
+        //     'socialUrl5'=> $socialUrl5,
+        //     'userPrivilege' => $userPrivilege,
+        //     'urlCard' => $urlCard 
+        // ]);
+        return view('my-card',compact(
+            'users',
+            'name',
+            'position',
+            'user_image',
+            'socialUrl1',
+            'socialUrl2',
+            'socialUrl3',
+            'socialUrl4',
+            'socialUrl5' ,
+            'userPrivilege',
+            'urlCard' 
+        ));
     }
 
     // public function myVCard(Request $request){
@@ -173,6 +186,7 @@ class HomeController extends Controller
     public function myVCardPDF(){
         // dd('pdf');
         $users= Auth::user();
+        // dd($users);
         // $userPrivilege= $users->roles->name;
         $userPrivilege=  User::with('roles')->where('name', '=', 'Super Admin')->get();
         // dd($userPrivilege);
@@ -204,9 +218,11 @@ class HomeController extends Controller
                 'urlCard' => $urlCard,
                 'socialUrl1' => $socialUrl1,
                 'socialUrl2' => $socialUrl2,
+                'socialUrl3' => $socialUrl3,
                 'socialUrl4' => $socialUrl4,
-                'socialUrl4' => $socialUrl4,
-                'socialUrl5' => $socialUrl5
+                'socialUrl5' => $socialUrl5,
+                'userPrivilege' => $userPrivilege,
+                'urlCard' => $urlCard 
             ];
         }else{
             $socialUrl1 = $social_media[0]->social_url1;
@@ -222,17 +238,40 @@ class HomeController extends Controller
                 'urlCard' => $urlCard,
                 'socialUrl1' => $socialUrl1,
                 'socialUrl2' => $socialUrl2,
+                'socialUrl3' => $socialUrl3,
                 'socialUrl4' => $socialUrl4,
-                'socialUrl4' => $socialUrl4,
-                'socialUrl5' => $socialUrl5
+                'socialUrl5' => $socialUrl5,
+                'userPrivilege' => $userPrivilege,
+                'urlCard' => $urlCard 
             ];
         }
         // dd($data);
         //NO ENTRA A CREAR LA VISTA!!
-        $pdf = PDF::loadView('my-card', $data)
-        ->save(storage_path('app/public/').'{{$name}}'+'_VCard.pdf');
-        dd('pdf');
-        // return view('my-card',[
+        // $pdf = PDF::loadView('my-card', $data)
+        // ->save(storage_path('app/public/').'{{$name}}'+'_VCard.pdf');
+        // dd('pdf');
+
+        // OPCION2 
+        $file = $name.'_VCard.pdf';
+        // view()->share('my-card',$data);
+        // dd($file);
+
+        $pdf = PDF::loadView('my-card', compact('users',
+        'name',
+        'position',
+        'user_image',
+        'socialUrl1',
+        'socialUrl2',
+        'socialUrl3',
+        'socialUrl4',
+        'socialUrl5' ,
+        'userPrivilege',
+        'urlCard' ));
+        // dd('pdf');
+
+        return $pdf->download($file);
+
+        // return view('edit-card',[
         //     'users' => $users,
         //     'name'=> $name,
         //     'position' => $position,
@@ -244,8 +283,8 @@ class HomeController extends Controller
         //     'socialUrl5'=> $socialUrl5,
         //     'userPrivilege' => $userPrivilege,
         //     'urlCard' => $urlCard 
-        // ]);
-        return redirect()->back();
+        // ]);     
+        // return redirect()->back();
     }
 
 

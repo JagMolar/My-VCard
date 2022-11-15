@@ -25,19 +25,19 @@
                             voluptatem laudantium quasi officiis inventore nobis unde omnis explicabo animi voluptatibus
                             quia dolores dicta veniam cumque eum doloremque.
                         </p> --}}
-                        <h5 class="card-title">Card preview</h5>
+                        {{-- <h5 class="card-title">Card preview</h5> --}}
                         {{-- <button class="m-4 d-flex justify-content-center btn btn-primary"  id="download">
                             Download Card
                         </button> --}}
-                        <div class="m-4 d-flex justify-content-center">
+                        {{-- <div class="m-4 d-flex justify-content-center">
                             <button class="btn btn-primary"  id="download">
                                 Download Card
                             </button>
                         </div>
-                        <div class="m-4 d-flex justify-content-center">
+                        <div class="m-4 d-flex justify-content-center"> --}}
                             {{-- <a class="btn btn-primary" href="{{ URL::to('/qrcode/pdf') }}">Convertir a PDF</a> --}}
-                            <a class="btn btn-primary" href={{url('my-card/send')}}>Convertir a PDF</a>
-                        </div>
+                            {{-- <a class="btn btn-primary" href={{url('my-card/send')}}>Convertir a PDF</a>
+                        </div> --}}
                         
                         
                         {{-- Internal cards  --}}                      
