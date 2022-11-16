@@ -146,7 +146,7 @@
                                 Download Card
                             </button>                       
                             {{-- <a class="btn btn-primary" href="{{ URL::to('/qrcode/pdf') }}">Convertir a PDF</a> --}}
-                            <a class="btn btn-primary m-1" role="button" href={{url('my-card/send')}}>Convertir a PDF</a>
+                            {{-- <a class="btn btn-primary m-1" role="button" href={{url('my-card/send')}}>Convertir a PDF</a> --}}
                         </div>
                         
                         <h5 class="card-title">Card preview</h5>

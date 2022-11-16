@@ -28,6 +28,13 @@
             window.open(uri);
         }else{
             link.href = uri;
+            // console.log(uri);
+            const reader = new FileReader();
+            reader.addEventListener("load", () => {
+                localStorage.setItem("{{$name}}"+"_VCard.png", reader.result);
+            });
+            // reader.canvas.toDataURL("image/png");
+            reader.readAsDataURL(this.files[0]);
             link.download = filename;
             // link.saveAsPNG= filename;
             accountForFirefox(clickLink, link);
