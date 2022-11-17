@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>{{ __('Forgot Password | Radmin - Laravel Admin Starter') }}</title>
+        <title>{{ __('Forgot Password | MyCard') }}</title>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <link rel="icon" href="{{ asset('favicon.png')}}" type="image/x-icon" />
+        <link rel="icon" href="{{ asset('./img/favicon_192x192.png')}}" type="image/x-icon" />
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
         
@@ -39,7 +39,7 @@
                     <div class="col-xl-4 col-lg-6 col-md-7 my-auto p-0">
                         <div class="authentication-form mx-auto">
                             <div class="logo-centered">
-                                <a href=""><img width="150"  src="{{ asset('img/logo.png')}}" alt=""></a>
+                                <a href=""><img width="150"  src="{{ asset('img/favicon_192x192.png')}}" alt=""></a>
                             </div>
                             <h3>{{ __('Forgot Password') }}</h3>
                             <p>{{ __('We will send you a link to reset password.') }}</p>

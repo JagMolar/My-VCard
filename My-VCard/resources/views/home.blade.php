@@ -30,7 +30,7 @@
 		        <div class="col-md-12 m-5  text-center">
                     <img class="m-2" src="/img/favicon_192x192.png" alt="" srcset="">
 		            {{-- <h6>Hello <span class="text-danger">Artisan</span>,</h6> --}}
-		            <h1 class="mt-2">Welcome to FastVCard!</h1>
+		            <h1 class="mt-2">Welcome to MyVCard!</h1>
 		            <a href="{{url('login')}}" role="button" class="btn btn-outline-success btn-lg">Login or Register</a>
                     {{-- <a href="{{url('login')}}" class="btn btn-success">Go to Admin</a> --}}
 		            {{-- <a href="https://documenter.getpostman.com/view/11223504/Szmh1vqc?version=latest" class="btn btn-danger">API Endpoint</a> --}}		            
