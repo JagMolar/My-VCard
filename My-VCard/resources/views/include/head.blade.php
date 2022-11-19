@@ -1,11 +1,11 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="description" content="">
-<meta name="keywords" content="">
+<meta name="description" content="MyVCard | Design and create your personal Virtual Card.">
+<meta name="keywords" content="Virtual Card">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<link rel="icon" href="{{ asset('/img/favicon_192x192.png')}}" />
+<link rel="icon" href="{{ asset('/img/logo-color-1080.png')}}" />
 {{-- <link rel="icon" href="{{ asset('favicon.png')}}" /> --}}
 
 <!-- font awesome library -->

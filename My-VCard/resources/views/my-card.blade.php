@@ -4,7 +4,7 @@
 @section('content')
     <!-- push external head elements to head -->
     @push('head')
-        <title>My Card | fastVcard</title>
+        {{-- <title>My Card | fastVcard</title> --}}
         <!-- add some inline style or css file if any -->
         {{-- <link rel="stylesheet" href="{{ asset('file-path')}}"> --}}
         <style type="text/css">
@@ -42,7 +42,7 @@
                         
                         {{-- Internal cards  --}}                      
                             {{-- Internal card view  --}}
-                            <div id="cardQr" class="card" style="background: url('/img/degradate-background.png'); background-size:cover;">
+                            <div id="cardQr" class="card" style="">
                                 <div class="card-body preview">
                                         @if ( $users->user_image == null)
                                             <img src="{{ asset('/img/superadmin.jpg') }}"
@@ -59,8 +59,8 @@
                                     @else
                                         <h3 class="h3">{{$position}}</h3>
                                     @endif
-                                    <div class="container-flex"
-                                        style=" display:flex;  align-items:center; justify-content:center; height:5rem; margin:1rem; padding:2rem;">                                        
+                                    <div class="container-flex socialIcons"
+                                        style="">                                        
                                         <a href="{{$socialUrl1}}" target="_blank" rel="noopener noreferrer">
                                             <img src="{{ asset('/img/linkedin256x256.webp') }}" class="card-img"
                                             style="width: 90%;" alt="image preview">
@@ -82,7 +82,7 @@
                                             style="width: 90%;" alt="image preview">
                                         </a>                                        
                                     </div>
-                                    <div class="container-flex" style=" display:flex;  align-items:center; justify-content:center;">
+                                    <div class="container-flex qr" style="">
                                         {{ QrCode::size(256)->generate($urlCard)  }}
                                     </div>                                              
                                 </div>

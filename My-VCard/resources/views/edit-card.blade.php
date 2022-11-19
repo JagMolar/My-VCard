@@ -4,7 +4,7 @@
 @section('content')
     <!-- push external head elements to head -->
     @push('head')
-        <title>Welcome | fastVcard</title>
+        {{-- <title>Welcome | MyVcard</title> --}}
         <!-- add some inline style or css file if any -->
         {{-- <link rel="stylesheet" href="{{ asset('file-path')}}"> --}}
         <style type="text/css">
@@ -14,7 +14,7 @@
     @include('flash-message')
     <div class="container">
     	<!-- page contents here -->
-        <h1>welcome cards to {{$users->name}}</h1>
+        <h1>Welcome to your virtual cards {{$users->name}}</h1>
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
@@ -28,20 +28,19 @@
                         {{ __('You are logged in!') }}
         
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore repudiandae dolor, eligendi
-                            voluptatem laudantium quasi officiis inventore nobis unde omnis explicabo animi voluptatibus
-                            quia dolores dicta veniam cumque eum doloremque.
+                            If you were thinking of creating a virtual card with which to share your professional profile, 
+                            My VCard helps you generate one that distinguishes you when presenting yourself.
+                            All you have to do is enter a few details and in a few seconds you can start using it.
                         </p>
         
                         {{-- Internal cards  --}}
                         <div class="card-deck">
                             {{-- Internal card form  --}}
-                            <div class="card">
+                            <div class="card" style="background-color: #f3f3f3">
                                 {{-- <img src="..." class="card-img-top" alt="image"> --}}
                                 <div class="card-body">
                                     <h5 class="card-title">Card Form</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit longer.</p>
+                                    <p class="card-text">Choose the data you want to display in the form below.</p>
                                     <form action="{{url('/profile/update')}}" method="post" enctype="multipart/form-data">
                                         @csrf
                                         <input type="hidden" name="id" value="{{Auth::user()->id}}">
@@ -126,19 +125,18 @@
                     <div class="card-body">    
                         <h5 class="card-title">Card View</h5>   
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore repudiandae dolor, eligendi
-                            voluptatem laudantium quasi officiis inventore nobis unde omnis explicabo animi voluptatibus
-                            quia dolores dicta veniam cumque eum doloremque.
+                            Introducing your dazzling new card!.
+                            
                         </p>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel doloremque deleniti eius! Neque officiis 
-                            dignissimos, ipsum id nihil quia suscipit modi pariatur maiores optio soluta, minus adipisci, eius est dolores!
+                            You can preview your card and if you like it, open it in a new isolated view or download it 
+                            as an image to share it with anyone you want.
                         </p>
                         {{-- <a class="btn btn-primary" href={{url('my-card')}}>My card</a> --}}
 
                         {{-- bloque de enlaces  --}}
                         <div class="container-flex"
-                            style=" display:flex;  align-items:center; justify-content:center; margin:1rem; padding:1rem;">   
+                            style=" display:flex;  align-items:center; justify-content:center; margin:1rem; ">   
                         {{-- <div class="m-2 d-flex justify-content-center"> --}}
                             <a class="btn btn-primary m-1" role="button" href={{url('my-card')}}>My card</a>
 
@@ -149,10 +147,10 @@
                             {{-- <a class="btn btn-primary m-1" role="button" href={{url('my-card/send')}}>Convertir a PDF</a> --}}
                         </div>
                         
-                        <h5 class="card-title">Card preview</h5>
+                        {{-- <h5 class="card-title">Card preview</h5> --}}
                         {{-- Internal cards  --}}                      
                             {{-- Internal card view  --}}
-                            <div id="cardQr" class="card" style="background: url('/img/degradate-background.png'); background-size:cover;">
+                            <div id="cardQr" class="card" style="">
                                 <div class="card-body preview">
                                         @if ( $users->user_image == null)
                                             <img src="{{ asset('/img/superadmin.jpg') }}"
@@ -170,8 +168,8 @@
                                         <h3 class="h3">{{$position}}</h3>
                                     @endif
                                     
-                                    <div class="container-flex"
-                                        style=" display:flex;  align-items:center; justify-content:center; height:5rem; margin:1rem; padding:2rem;">                                        
+                                    <div class="container-flex socialIcons"
+                                        style="">                                        
                                         <a href="{{$socialUrl1}}" target="_blank" rel="noopener noreferrer">
                                             <img src="{{ asset('/img/linkedin256x256.webp') }}" class="card-img"
                                             style="width: 90%;" alt="image preview">
@@ -197,7 +195,7 @@
                                     {{-- <div class="container-flex" style=" display:flex;  align-items:center; justify-content:center;">
                                         {{ QrCode::size(300)->generate('https://techvblogs.com/blog/generate-qr-code-laravel-8')  }}
                                     </div> --}}
-                                    <div class="container-flex" style=" display:flex;  align-items:center; justify-content:center;">
+                                    <div class="container-flex qr" style="">
                                         {{ QrCode::size(256)->generate($urlCard)  }}
                                     </div>
                                     {{-- <img src="{{ asset('/img/superadmin.jpg') }}" class="card-img-overlay  frame-qr"

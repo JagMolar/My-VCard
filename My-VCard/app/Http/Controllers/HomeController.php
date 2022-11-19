@@ -40,9 +40,14 @@ class HomeController extends Controller
     {
         $users= Auth::user();
         // $userPrivilege= $users->roles->name;
-        $userPrivilege=  User::with('roles')->where('name', '=', 'Super Admin')->get();
-        // dd($userPrivilege);
+        $privilege=  User::with('roles')->where('name', '=', 'Super Admin')->get();
+        $idRol= $privilege[0]->id;
+        // dd($idRol);
+        
+        
         $id= $users->id;
+        $userPrivilege= ($id == $idRol) ? 'Super Admin' : null;
+        // dd($userPrivilege);
         $name= $users->name;
         $position= $users->position;
         $user_image = $users->user_image;

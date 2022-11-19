@@ -38,9 +38,9 @@ Route::post('password/email', [ForgotPasswordController::class,'sendResetLinkEma
 Route::get('password/reset/{token}', [ResetPasswordController::class,'showResetForm'])->name('password.reset');
 Route::post('password/reset', [ResetPasswordController::class,'reset'])->name('password.update');
 
-Route::get('/edit-card',[HomeController::class,'welcomeCard']);
-Route::get('/my-card',[HomeController::class,'myCard']);
-Route::get('/my-card/send',[HomeController::class,'myVCardPDF']);
+// Route::get('/edit-card',[HomeController::class,'welcomeCard']);
+// Route::get('/my-card',[HomeController::class,'myCard']);
+// Route::get('/my-card/send',[HomeController::class,'myVCardPDF']);
 
 
 Route::group(['middleware' => 'auth'], function(){
@@ -53,6 +53,11 @@ Route::group(['middleware' => 'auth'], function(){
 		return view('pages.dashboard'); 
 	})->name('dashboard');
  
+	// cards routes
+	Route::get('/edit-card',[HomeController::class,'welcomeCard']);
+	Route::get('/my-card',[HomeController::class,'myCard']);
+	Route::get('/my-card/send',[HomeController::class,'myVCardPDF']);
+	
 	//update routes
 	Route::get('/profile', [UserController::class,'editProfiles']);
 	Route::post('/profile/update', [UserController::class,'updateProfiles']);

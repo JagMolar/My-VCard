@@ -2,9 +2,14 @@
     <div class="sidebar-header">
         <a class="header-brand" href="{{route('dashboard')}}">
             <div class="logo-img">
-               <img height="30" src="{{ asset('img/logo_white.png')}}" class="header-brand-img" title="RADMIN"> 
+               <img height="30" src="{{ asset('img/logo-text.png')}}" class="header-brand-img" title="My VCard"> 
             </div>
         </a>
+        {{-- <button class="nav-link" title="clear cache">
+            <a  href="{{url('clear-cache')}}">
+                <i class="ik ik-battery-charging"></i> 
+            </a>
+        </button> &nbsp;&nbsp; --}}
         <div class="sidebar-action"><i class="ik ik-arrow-left-circle"></i></div>
         <button id="sidebarClose" class="nav-close"><i class="ik ik-x"></i></button>
     </div>

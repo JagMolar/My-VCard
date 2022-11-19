@@ -8,7 +8,7 @@
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <link rel="icon" href="{{ asset('./img/favicon_192x192.png')}}" type="image/x-icon" />
+        <link rel="icon" href="{{ asset('./img/logo-color-1080.ico')}}" type="image/x-icon" />
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
         
@@ -33,13 +33,15 @@
                 <div class="row flex-row h-100 bg-white">
                     <div class="col-xl-8 col-lg-6 col-md-5 p-0 d-md-block d-lg-block d-sm-none d-none">
                         <div class="lavalite-bg" >
-                            <div class="lavalite-overlay"></div>
+                            <div class="lavalite-overlay">
+                                <a style="padding: 1rem; font-size:0.9rem;" href="https://www.freepik.es/vector-gratis/elegir-mejor-concepto-candidato_9430580.htm#page=6&query=ilustraciones%20negocio&position=37&from_view=search&track=sph#position=37&page=6&query=ilustraciones%20negocio">Imagen de pikisuperstar</a>en Freepik
+                            </div>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-6 col-md-7 my-auto p-0">
                         <div class="authentication-form mx-auto">
                             <div class="logo-centered">
-                                <a href=""><img width="150"  src="{{ asset('img/favicon_192x192.png')}}" alt=""></a>
+                                <a href=""><img width="100%"  src="{{ asset('img/logo-color-1080.png')}}" alt="logo MyVCard"></a>
                             </div>
                             <h3>{{ __('Forgot Password') }}</h3>
                             <p>{{ __('We will send you a link to reset password.') }}</p>
@@ -64,7 +66,10 @@
                                 </div>
                             </form>
                             <div class="register">
-                                <p>{{ __('Not a member') }}? <a href="{{ url('register')}}">{{ __('Create an account') }}</a></p>
+                                <p>{{ __('Not a member') }}? <a href="{{ url('register/new-register')}}">{{ __('Create an account') }}</a></p>
+                                
+                                <p>{{ __('Ops! I just remember my pasword')}} <a href="{{url('login')}}">{{ __('Sign In')}}</a></p>
+                                
                             </div>
                         </div>
                     </div>

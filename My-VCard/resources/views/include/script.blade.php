@@ -29,6 +29,18 @@
         }else{
             link.href = uri;
             // console.log(uri);
+            link.download = filename;
+            accountForFirefox(clickLink, link);
+        }
+    }
+
+    function saveImage(uri, filename){
+        var link = document.createElement('a');
+        if(typeof link.download !== 'string'){
+            window.open(uri);
+        }else{
+            link.href = uri;
+            // console.log(uri);
             const reader = new FileReader();
             reader.addEventListener("load", () => {
                 localStorage.setItem("{{$name}}"+"_VCard.png", reader.result);
@@ -40,6 +52,9 @@
             accountForFirefox(clickLink, link);
         }
     }
+
+
+
 
     function clickLink(link){
         link.click();

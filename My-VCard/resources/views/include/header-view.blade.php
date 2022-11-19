@@ -4,7 +4,7 @@
             <div class="top-menu d-flex align-items-center">
                 <button type="button" class="btn-icon mobile-nav-toggle d-lg-none"><span></span></button>
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('/img/favicon_192x192.png') }}" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" width="25em"alt="">
+                    <img src="{{ asset('/img/logo-color-1080.png') }}" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" width="25em"alt="">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button type="button" id="navbar-fullscreen" class="nav-link"><i class="ik ik-maximize"></i></button>

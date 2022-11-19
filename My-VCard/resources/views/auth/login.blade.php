@@ -3,12 +3,12 @@
     <head> 
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Login | FastVcard</title>
+        <title>Login | MyVcard</title>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <link rel="icon" href="{{ asset('img/favicon_192x192.png') }}" type="image/x-icon" />
+        <link rel="icon" href="{{ asset('img/logo-color-1080.ico') }}" type="image/x-icon" />
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
         
@@ -34,7 +34,7 @@
                         <div class="authentication-form mx-auto">
                             <div class="logo-centered">
                                 {{-- <a href="http://radmin.rakibhstu.com"><img height="40" src="{{ asset('img/logo.png') }}" alt="RADMIN" ></a> --}}
-                                <a href=""><img height="40" src="{{ asset('img/favicon_192x192.png') }}" alt="fastVCard" ></a>
+                                <a href=""><img height="40" src="{{ asset('img/logo-color-1080.png') }}" alt="MyVCard logo" ></a>
                             </div>
                             <h3>Welcome! </h3>
                             <form method="POST" action="{{ route('login') }}">
