@@ -230,6 +230,26 @@
   padding:1rem;
 }
 
+#cardView {
+  border-radius: 1rem;
+  background: url('/img/degradate-background.png'); 
+  background-size:cover;
+  box-shadow: 17px 21px 21px -1px rgb(0 0 0 /40%);
+  border-bottom-width: 3px;
+  border-right-width: 3px;
+  border-style: solid;
+  border-color: #838383;
+  border-left: 0;
+  border-top: 0;
+}
+
+#cardView h1,h3{
+  padding-left: 2rem;
+}
+#cardView h3{
+  box-shadow: -1px 14px 14px 1px rgb(0 0 0 /10%);
+}
+
 @media  only screen and (max-width:1024px) {
   .h1, h1{
     font-size: 1.75rem !important;
@@ -256,6 +276,15 @@
     /* height:5rem; */
     margin: 0.5rem;
     padding:0.5rem;
+  }
+
+  #cardView {
+    background: url('/img/degradate-background.png'); 
+    background-size:cover;
+  }
+
+  #cardView h1,h3{
+    padding: 2rem;
   }
   
 }

@@ -39,7 +39,7 @@ Route::get('password/reset/{token}', [ResetPasswordController::class,'showResetF
 Route::post('password/reset', [ResetPasswordController::class,'reset'])->name('password.update');
 
 // Route::get('/edit-card',[HomeController::class,'welcomeCard']);
-// Route::get('/my-card',[HomeController::class,'myCard']);
+Route::get('/user-card',[HomeController::class,'userCard']);
 // Route::get('/my-card/send',[HomeController::class,'myVCardPDF']);
 
 

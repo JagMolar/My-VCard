@@ -62,7 +62,7 @@ class HomeController extends Controller
         // dd($social_media[0]);
         // dd($social_media[0]->social_url1);
 
-        $urlCard = url("/my-card");
+        $urlCard = url("/user-card");
         // dd($urlCard);
 
         if(empty($social_media)){
@@ -119,7 +119,7 @@ class HomeController extends Controller
         $position= $users->position;
         $user_image = $users->user_image;
 
-        $urlCard = url("/my-card");
+        $urlCard = url("/user-card");
         // dd($urlCard);
 
         // $user_image = $request->file('user_image')->store('public/img/uploads');
@@ -170,6 +170,51 @@ class HomeController extends Controller
             'urlCard' 
         ));
     }
+
+    public function userCard()
+    {
+        $users= Auth::user(); 
+        $userPrivilege=  User::with('roles')->where('name', '=', 'Super Admin')->get();
+        $id= $users->id;
+        $name= $users->name;
+        $position= $users->position;
+        $user_image = $users->user_image;
+
+        $urlCard = url("/user-card");
+
+        $social_media = DB::select('select * from social_media where social_user_id = ?', [$id]) ;
+  
+        if(empty($social_media)){
+            $socialUrl1 = '';
+            $socialUrl2 = '';
+            $socialUrl3 = '';
+            $socialUrl4 = '';
+            $socialUrl5 = '';
+        }else{
+            $socialUrl1 = $social_media[0]->social_url1;
+            $socialUrl2 = $social_media[0]->social_url2;
+            $socialUrl3 = $social_media[0]->social_url3;
+            $socialUrl4 = $social_media[0]->social_url4;
+            $socialUrl5 = $social_media[0]->social_url5;
+        }
+        
+        return view('user-card',compact(
+            'users',
+            'name',
+            'position',
+            'user_image',
+            'socialUrl1',
+            'socialUrl2',
+            'socialUrl3',
+            'socialUrl4',
+            'socialUrl5' ,
+            'userPrivilege',
+            'urlCard' 
+        ));
+    }
+
+
+
 
     // public function myVCard(Request $request){
     //     dd($request);
