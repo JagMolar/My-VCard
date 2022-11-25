@@ -95,6 +95,6 @@
     </div><!-- end container-fluid of page contents -->
     <!-- push external js if any -->
     @push('script') 
-        <script src="{{ asset('script-path') }}"></script>
+        {{-- <script src="{{ asset('script-path') }}"></script> --}}
     @endpush
 @endsection'

@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+       // $this->middleware('auth');
     }
 
     /**
@@ -119,7 +119,7 @@ class HomeController extends Controller
         $position= $users->position;
         $user_image = $users->user_image;
 
-        $urlCard = url("/user-card");
+        $urlCard = url("/user-card/$id");
         // dd($urlCard);
 
         // $user_image = $request->file('user_image')->store('public/img/uploads');
@@ -171,16 +171,20 @@ class HomeController extends Controller
         ));
     }
 
-    public function userCard()
+    public function userCard($id)
     {
-        $users= Auth::user(); 
+
+        $users= User::find($id);
+        // dd($users);
+        // $users= Auth::user(); 
         $userPrivilege=  User::with('roles')->where('name', '=', 'Super Admin')->get();
         $id= $users->id;
         $name= $users->name;
         $position= $users->position;
         $user_image = $users->user_image;
 
-        $urlCard = url("/user-card");
+        $urlCard = url("/user-card/$id");
+        // dd($urlCard);
 
         $social_media = DB::select('select * from social_media where social_user_id = ?', [$id]) ;
   

@@ -3,7 +3,7 @@
 
 @section('content')
     <!-- push external head elements to head -->
-    @push('head')
+    @push('head')<link rel="shortcut icon" href="{{ asset('logo-color-1080.ico')}}" type="image/x-icon" />
         {{-- <title>Welcome | MyVcard</title> --}}
         <!-- add some inline style or css file if any -->
         {{-- <link rel="stylesheet" href="{{ asset('file-path')}}"> --}}
@@ -139,6 +139,7 @@
                             style=" display:flex;  align-items:center; justify-content:center; margin:1rem; ">   
                         {{-- <div class="m-2 d-flex justify-content-center"> --}}
                             <a class="btn btn-primary m-1" role="button" href={{url('my-card')}}>My card</a>
+                            <a class="btn btn-primary m-1" role="button" href={{url('user-card/'.$users->id)}}>My user card</a>
 
                             <button class="btn btn-primary m-1"  id="download">
                                 Download Card
