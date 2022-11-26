@@ -48,7 +48,7 @@
                                             <div class="form-group">
                                                 <label for="user_image" class="form-label">Choose an profile image</label>
                                                 <input type="file" class="form-control" id="user_image" name="user_image"
-                                                    aria-describedby="fileHelp" accept="image/*">
+                                                    aria-describedby="fileHelp" value="{{$user_image}}" accept="image/*">
                                                 <div id="fileHelp" class="form-text">Only an png or JPEG image.</div>
                                             </div>                                       
                                         </div>
@@ -211,6 +211,6 @@
     </div><!-- end container-fluid of page contents -->
     <!-- push external js if any -->
     @push('script') 
-        <script src="{{ asset('script-path') }}"></script>
+        {{-- <script src="{{ asset('script-path') }}"></script> --}}
     @endpush
 @endsection'

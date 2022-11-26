@@ -43,28 +43,28 @@
                             </h3>                                    
 
                             <h3>
-                                <a href="{{$socialUrl1}}" target="_blank" rel="noopener noreferrer">
+                                <a href="{{$socialUrl2}}" target="_blank" rel="noopener noreferrer">
                                     <img src="{{ asset('/img/instagram.webp') }}" class="card-img"
                                 style="height: min-content; width: 10%;;" alt="image preview"> {{$socialUrl2}}
                                 </a>                              
                             </h3> 
 
                             <h3>
-                                <a href="{{$socialUrl1}}" target="_blank" rel="noopener noreferrer">
+                                <a href="{{$socialUrl3}}" target="_blank" rel="noopener noreferrer">
                                     <img src="{{ asset('/img/github.webp') }}" class="card-img"
                                 style="height: min-content; width: 10%;" alt="image preview"> {{$socialUrl3}}
                                 </a>                               
                             </h3> 
                             
                             <h3>
-                                <a href="{{$socialUrl1}}" target="_blank" rel="noopener noreferrer">
+                                <a href="{{$socialUrl4}}" target="_blank" rel="noopener noreferrer">
                                     <img src="{{ asset('/img/email.webp') }}" class="card-img"
                                 style="height: min-content; width: 10%;" alt="image preview"> {{$socialUrl4}}
                                 </a>                              
                             </h3> 
                             
                             <h3>
-                                <a href="{{$socialUrl1}}" target="_blank" rel="noopener noreferrer">
+                                <a href="{{$socialUrl5}}" target="_blank" rel="noopener noreferrer">
                                     <img src="{{ asset('/img/web.webp') }}" class="card-img"
                                 style="height: min-content; width: 10%;" alt="image preview"> {{$socialUrl5}}
                                 </a>                                

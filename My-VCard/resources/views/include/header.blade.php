@@ -2,7 +2,11 @@
     <div class="container-fluid">
         <div class="d-flex justify-content-between">
             <div class="top-menu d-flex align-items-center">
-                <button type="button" class="btn-icon mobile-nav-toggle d-lg-none"><span></span></button>
+                @if( $userPrivilege ){
+                    <!-- show menu button-->
+                    <button type="button" class="btn-icon mobile-nav-toggle d-lg-none"><span></span></button>
+                }
+                @endif
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('/img/logo-color-1080.png') }}" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" width="25em"alt="">
                     {{ config('app.name', 'My VCard') }}

@@ -39,7 +39,7 @@
                     <div class="col-xl-4 col-lg-6 col-md-7 my-auto p-0">
                         <div class="authentication-form mx-auto">
                             <div class="logo-centered">
-                                <a href=""><img width="150"  src="{{ asset('img/logo.png')}}" alt=""></a>
+                                <a href=""><img width="150"  src="{{ asset('img/logo-color-1080.png')}}" alt=""></a>
                             </div>
                             <h3>{{ __('Reset Password') }}</h3>
                             <p>{{ __('Enter your new password.') }}</p>

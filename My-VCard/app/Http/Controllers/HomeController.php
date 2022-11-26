@@ -50,7 +50,12 @@ class HomeController extends Controller
         // dd($userPrivilege);
         $name= $users->name;
         $position= $users->position;
-        $user_image = $users->user_image;
+        if(empty($user_image)){
+            $user_image = '';
+        }else{
+            $user_image = $users->user_image;
+        }
+        // $user_image = $users->user_image;
         // dd($user_image);
 
         // if(empty($position)){

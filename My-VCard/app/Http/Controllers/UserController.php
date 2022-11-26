@@ -278,14 +278,16 @@ class UserController extends Controller
 
         try {
             $user = User::find($request->id);
+            $name = $request->name;
+            $position = $request->position;
 
             if(isset($request->user_image)){
                 $user_image = $request->file('user_image')->store('public/img/uploads');
                 $url_image = Storage::url($user_image);
                 // dd($url_image);
 
-                $name = $request->name;
-                $position = $request->position;
+                // $name = $request->name;
+                // $position = $request->position;
                 // dd($position);
             
 
@@ -295,6 +297,17 @@ class UserController extends Controller
                     'user_image' => $url_image,
                 ]);
                 // dd($update);
+            }else{
+                // $name = $request->name;
+                // $position = $request->position;
+                // dd($position);
+            
+
+                $update = $user->update([
+                    'name' => $name,
+                    'position' => $position
+                ]);
+
             }
                 $socialUrl1 = $request->socialUrl1;
                 $socialUrl2 = $request->socialUrl2;
@@ -374,7 +387,7 @@ class UserController extends Controller
             // dd($update);
 
             $request->session()->flash('alert-success', 'Imagen de usuario actualizada correctamente!');
-            return back();
+            return back()->with('success', 'User data updated!');
         } catch (\Exception $e ) {
             $bug = $e->getMessage();
             return redirect()->back()->with('error', $bug);
