@@ -53,6 +53,7 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/dashboard', function () { 
 		return view('pages.dashboard'); 
 	})->name('dashboard');
+	// Route::get('/dashboard',[HomeController::class,'dashboard'])->name('dashboard');
  
 	// cards routes
 	Route::get('/edit-card',[HomeController::class,'welcomeCard']);

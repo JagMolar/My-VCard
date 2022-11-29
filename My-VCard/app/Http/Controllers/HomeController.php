@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-       // $this->middleware('auth');
+    //    $this->middleware('auth');
     }
 
     /**
@@ -35,6 +35,24 @@ class HomeController extends Controller
         \Artisan::call('cache:clear');
         return view('clear-cache');
     }
+
+    // public function dashboard(){
+    //     $users= Auth::user();
+    //     $privilege=  User::with('roles')->where('name', '=', 'Super Admin')->get();
+    //     $idRol= $privilege[0]->id;
+    //     // dd($idRol);
+        
+        
+    //     $id= $users->id;
+    //     $userPrivilege= ($id == $idRol) ? 'Super Admin' : null;
+    //     $name= $users->name;
+    //     return view('pages.dashboard',[
+    //         'users' => $users,
+    //         'userPrivilege' => $userPrivilege, 
+    //         'name' => $name
+    //     ]); 
+    // }
+    
 
     public function welcomeCard()
     {
