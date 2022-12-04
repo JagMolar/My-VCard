@@ -92,7 +92,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="socialUrl4" class="form-label">Choose a Social Network</label>
-                                            <input type="url" class="form-control" id="socialUrl4" name="socialUrl4"
+                                            <input type="email" class="form-control" id="socialUrl4" name="socialUrl4"
                                                 aria-describedby="urlHelp" value="{{$socialUrl4}}" required >
                                             <div id="emailHelp" class="form-text">Your choice 4 of 5.</div>
                                         </div>
@@ -161,13 +161,21 @@
                                             class="rounded-circle user-image" alt="image preview"> 
                                         @endif
                                     
-                                    
-                                    <h1 class="h1" style="text-transform: uppercase">{{$name}}</h1>
+                                        <div class="container-flex preview"
+                                        style=" display:flex; flex-direction:column;  align-items:center; margin:1rem; ">
+                                            <h1 class="h1" style="text-transform: uppercase">{{$name}}</h1>
+                                            @if ($position == null)
+                                                <h3 class="h3">My position</h3>
+                                            @else
+                                                <h3 class="h3">{{$position}}</h3>
+                                            @endif
+                                        </div>  
+                                    {{-- <h1 class="h1" style="text-transform: uppercase">{{$name}}</h1>
                                     @if ($position == null)
                                         <h3 class="h3">My position</h3>
                                     @else
                                         <h3 class="h3">{{$position}}</h3>
-                                    @endif
+                                    @endif --}}
                                     
                                     <div class="container-flex socialIcons"
                                         style="">                                        

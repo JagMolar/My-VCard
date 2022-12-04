@@ -250,7 +250,7 @@ class UserController extends Controller
             'socialUrl1'             => 'nullable | url ',
             'socialUrl2'             => 'nullable | url ',
             'socialUrl3'             => 'nullable | url ',
-            'socialUrl4'             => 'nullable | url ',
+            'socialUrl4'             => 'nullable | email ',
             'socialUrl5'             => 'nullable | url ',
         ]);
         // dd($validator);

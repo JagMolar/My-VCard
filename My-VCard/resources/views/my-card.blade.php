@@ -44,21 +44,31 @@
                             {{-- Internal card view  --}}
                             <div id="cardQr" class="card" style="">
                                 <div class="card-body preview">
-                                        @if ( $users->user_image == null)
-                                            <img src="{{ asset('/img/superadmin.jpg') }}"
-                                            class="rounded-circle user-image" alt="image preview">                                                                                  
-                                        @else
-                                            <img src="{{ asset( $users->user_image ) }}"
-                                            class="rounded-circle user-image" alt="image preview"> 
-                                        @endif
+                                    @if ( $users->user_image == null)
+                                        <img src="{{ asset('/img/superadmin.jpg') }}"
+                                        class="rounded-circle user-image" alt="image preview">                                                                                  
+                                    @else
+                                        <img src="{{ asset( $users->user_image ) }}"
+                                        class="rounded-circle user-image" alt="image preview"> 
+                                    @endif
+
+                                    <div class="container-flex preview"
+                                        style=" display:flex; flex-direction:column;  align-items:center; margin:1rem; ">
+                                            <h1 class="h1" style="text-transform: uppercase">{{$name}}</h1>
+                                            @if ($position == null)
+                                                <h3 class="h3">My position</h3>
+                                            @else
+                                                <h3 class="h3">{{$position}}</h3>
+                                            @endif
+                                        </div>  
                                     
                                     
-                                    <h1 class="h1" style="text-transform: uppercase">{{$name}}</h1>
+                                    {{-- <h1 class="h1" style="text-transform: uppercase">{{$name}}</h1>
                                     @if ($position == null)
                                         <h3 class="h3">My position</h3>
                                     @else
                                         <h3 class="h3">{{$position}}</h3>
-                                    @endif
+                                    @endif --}}
                                     <div class="container-flex socialIcons"
                                         style="">                                        
                                         <a href="{{$socialUrl1}}" target="_blank" rel="noopener noreferrer">
