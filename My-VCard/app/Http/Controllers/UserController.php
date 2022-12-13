@@ -225,13 +225,7 @@ class UserController extends Controller
             dd($request);
             $cardImage = $request->file('card_image')->store('public/img/uploads');
             $url_image = Storage::url($cardImage);
-            // $imagenCodificada = $_POST["imagen"];
-            // $imagenCodificada = 'imagen';
-            // $imagenCodificadaLimpia = str_replace("data:image/png;base64,", "", $imagenCodificada);
-            // $imagenDecodificada = base64_decode($imagenCodificadaLimpia);
-            // $nombreImagenGuardada = "imagen_" . uniqid() . ".png";
-            // file_put_contents($nombreImagenGuardada, $imagenDecodificada);
-            // echo json_encode($nombreImagenGuardada); 
+
         }
         
     }
@@ -265,16 +259,6 @@ class UserController extends Controller
                     ->first();
         }
 
-        // $id = $request->input('id');
-        // $name = $request->input('name');
-        // $user_image = $request->input('user_image');
-        // $position = $request->input('position');
-        // $socialUrl1 = $request->input('socialUrl1');
-        // $socialUrl2 = $request->input('socialUrl2');
-        // $socialUrl3 = $request->input('socialUrl3');
-        // $socialUrl4 = $request->input('socialUrl4');
-        // $socialUrl5 = $request->input('socialUrl5');
-        // dd($name);
 
         try {
             $user = User::find($request->id);
@@ -284,25 +268,15 @@ class UserController extends Controller
             if(isset($request->user_image)){
                 $user_image = $request->file('user_image')->store('public/img/uploads');
                 $url_image = Storage::url($user_image);
-                // dd($url_image);
-
-                // $name = $request->name;
-                // $position = $request->position;
-                // dd($position);
-            
 
                 $update = $user->update([
                     'name' => $name,
                     'position' => $position,
                     'user_image' => $url_image,
                 ]);
-                // dd($update);
+   
             }else{
-                // $name = $request->name;
-                // $position = $request->position;
-                // dd($position);
-            
-
+       
                 $update = $user->update([
                     'name' => $name,
                     'position' => $position
@@ -316,75 +290,15 @@ class UserController extends Controller
                 $socialUrl5 = $request->socialUrl5;
 
                 $sql = 'SELECT social_user_id FROM social_media s JOIN users u ON u.id=s.social_user_id WHERE u.id='.$user->id;
-                // dd($sql);
+                
                 $social_media = DB::select($sql);
-                // dd($social_media);
-
+               
                 if(empty($social_media)){
                     $sqlSocial = "INSERT INTO social_media (social_user_id,social_url1,social_url2,social_url3,social_url4,social_url5) VALUES (".$user->id.",'".$socialUrl1."','".$socialUrl2."','".$socialUrl3."','".$socialUrl4."','".$socialUrl5."')";
-                    // dd($sqlSocial);
+             
                     $socialData = DB::insert($sqlSocial);
-                    // dd($socialData);
-                }
-            // dd($user);
-            /*DESCOMENTAR TRAS VERIFICAR EL RESTO DE UPDATES*/
-            
-            // $name = $request->name;
-            // $position = $request->position;
-            // dd($position);
-            // $update = $user->update([
-            //     'name' => $name,
-            //     'position' => $position,
-            //     'user_image' => $image_url
-            // ]);
 
-            // if(isset($request->userImage)){
-                // $userImage = $request->file('userImage')->store('public/img/uploads');
-                // $image_url = Storage::url($userImage);
-
-                // dd($image_url);
-
-                // $update = $user->updateProfiles([
-                //     'name' => $name,
-                //     'position' => $userPosition,
-                //     'user_image' => $image_url
-                // ]);
-
-                // dd($update);
-
-                // $sql='SELECT image_id,image_url FROM user_images i JOIN users u ON u.id=i.image_id WHERE u.id='.$id;
-               // $sql='SELECT user_image FROM users u WHERE u.id='.$id;
-                // dd($sql);
-               // $user_images= DB::select($sql);
-                // dd($user_images);
-
-                // if(empty($user_images)){
-                //     $sql1="INSERT INTO user_images (image_id,image_url) VALUES (".$id.",'".$image_url."') ";
-                //     // dd($sql1);
-                //     $insert_image1= DB::insert($sql1);
-                // }else{
-                //     $sqlImage = "UPDATE user_images SET image_id = ".$id. ", image_url = ".$image_url. " WHERE image_id=".$id;
-                //     // dd($sqlImage);
-                //     $updateImage = DB::update($sqlImage);
-                // }
-
-                
-
-                // $updateImage = $user_images->update([
-                //     'userImage' => $image_url,
-                // ]);
-            // }
-
-            // dd($userPosition);
-            // dd($image_url);
-
-            // $update = $user->update([
-            //     'name' => $name,
-            //     'position' => $position,
-            //     'user_image' => $image_url
-            // ]);
-
-            // dd($update);
+                }           
 
             $request->session()->flash('alert-success', 'Imagen de usuario actualizada correctamente!');
             return back()->with('success', 'User data updated!');

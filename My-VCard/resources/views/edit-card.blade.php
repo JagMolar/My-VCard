@@ -37,7 +37,6 @@
                         <div class="card-deck">
                             {{-- Internal card form  --}}
                             <div class="card" style="background-color: #f3f3f3">
-                                {{-- <img src="..." class="card-img-top" alt="image"> --}}
                                 <div class="card-body">
                                     <h5 class="card-title">Card Form</h5>
                                     <p class="card-text">Choose the data you want to display in the form below.</p>
@@ -60,12 +59,6 @@
                                                 <div id="nameHelp" class="form-text">We'll need your name.</div>
                                             </div>
                                         </div>
-                                        {{-- <div class="mb-3">
-                                            <label for="exampleInputPosition" class="form-label">Your position</label>
-                                            <input type="email" class="form-control" id="exampleInputPosition"
-                                                aria-describedby="positionHelp">
-                                            <div id="emailHelp" class="form-text">Define your role.</div>
-                                        </div> --}}
                                         <div class="mb-3">
                                             <label for="position" class="form-label">Your position</label>
                                             <input type="text" class="form-control" id="position" name="position"
@@ -102,14 +95,6 @@
                                                 aria-describedby="urlHelp" value="{{$socialUrl5}}" required >
                                             <div id="emailHelp" class="form-text">Your choice 5 of 5.</div>
                                         </div>
-                                        {{-- <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1">
-                                    </div> --}}
-                                        {{-- <div class="mb-3 form-check">
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                        </div> --}}
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
                                 </div>
@@ -132,20 +117,16 @@
                             You can preview your card and if you like it, open it in a new isolated view or download it 
                             as an image to share it with anyone you want.
                         </p>
-                        {{-- <a class="btn btn-primary" href={{url('my-card')}}>My card</a> --}}
 
                         {{-- bloque de enlaces  --}}
                         <div class="container-flex"
                             style=" display:flex;  align-items:center; justify-content:center; margin:1rem; ">   
-                        {{-- <div class="m-2 d-flex justify-content-center"> --}}
                             <a class="btn btn-primary m-1" role="button" href={{url('my-card')}}>My card</a>
                             <a class="btn btn-primary m-1" role="button" href={{url('user-card/'.$users->id)}}>My user card</a>
 
                             <button class="btn btn-primary m-1"  id="download">
                                 Download Card
                             </button>                       
-                            {{-- <a class="btn btn-primary" href="{{ URL::to('/qrcode/pdf') }}">Convertir a PDF</a> --}}
-                            {{-- <a class="btn btn-primary m-1" role="button" href={{url('my-card/send')}}>Convertir a PDF</a> --}}
                         </div>
                         
                         {{-- <h5 class="card-title">Card preview</h5> --}}
@@ -170,12 +151,6 @@
                                                 <h3 class="h3">{{$position}}</h3>
                                             @endif
                                         </div>  
-                                    {{-- <h1 class="h1" style="text-transform: uppercase">{{$name}}</h1>
-                                    @if ($position == null)
-                                        <h3 class="h3">My position</h3>
-                                    @else
-                                        <h3 class="h3">{{$position}}</h3>
-                                    @endif --}}
                                     
                                     <div class="container-flex socialIcons"
                                         style="">                                        
@@ -201,14 +176,10 @@
                                         </a>
                                                                                 
                                     </div>
-                                    {{-- <div class="container-flex" style=" display:flex;  align-items:center; justify-content:center;">
-                                        {{ QrCode::size(300)->generate('https://techvblogs.com/blog/generate-qr-code-laravel-8')  }}
-                                    </div> --}}
                                     <div class="container-flex qr" style="">
                                         {{ QrCode::size(256)->generate($urlCard)  }}
                                     </div>
-                                    {{-- <img src="{{ asset('/img/superadmin.jpg') }}" class="card-img-overlay  frame-qr"
-                                        alt="image preview"> --}}                                                                                  
+                                                                               
                                 </div>
                             </div> <!-- end internal card -->                   
                     </div> <!-- end card-body -->

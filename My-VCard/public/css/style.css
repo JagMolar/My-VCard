@@ -254,7 +254,7 @@
   /* @media  only screen and (max-width:560px) { */
   .socialIcons{
     height:max-content; 
-    width: 15%;
+    /* width: 15%; */
   }
 
   socialIconsView{

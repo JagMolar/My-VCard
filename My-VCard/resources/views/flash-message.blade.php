@@ -13,7 +13,6 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
-    {{-- <button  type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> --}}
 </div>
 @endif
 @if ($message = Session::get('error'))
@@ -22,7 +21,6 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
-    {{-- <button  type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> --}}
 </div>
 @endif
 @if ($message = Session::get('warning'))
@@ -31,7 +29,6 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
-    {{-- <button  type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> --}}
 </div>
 @endif
 @if ($message = Session::get('info'))
@@ -40,7 +37,6 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
-    {{-- <button  type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> --}}
 </div>
 @endif
 @if ($errors->any())
@@ -49,7 +45,5 @@
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-    {{-- <button  class="close" data-dismiss="alert"><span>&times;</span></button> --}}
-    {{-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> --}}
 </div>
 @endif

@@ -3,7 +3,7 @@
 @section('content')
     <!-- push external head elements to head -->
     @push('head')
-        <title>View | Radmin - Laravel Admin Starter</title>
+        <title>View | My Vcard</title>
         <link rel="stylesheet" href="{{ asset('plugins/DataTables/datatables.min.css') }}">
         <link rel="stylesheet" href="{{ asset('plugins/jvectormap/jquery-jvectormap.css') }}">
         <link rel="stylesheet" href="{{ asset('plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css') }}">

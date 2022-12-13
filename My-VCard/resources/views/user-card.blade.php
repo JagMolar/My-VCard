@@ -37,37 +37,37 @@
                             <h3>
                               
                                 <a href="{{$socialUrl1}}" target="_blank" rel="noopener noreferrer">
-                                    <img src="{{ asset('/img/linkedin256x256.webp') }}" class="socialIconsView"
-                                style="" alt="image preview"> {{$socialUrl1}}
+                                    <img src="{{ asset('/img/linkedin256x256.webp') }}" class="socialIcons"
+                                style="height:min-content; width:10%;" alt="image preview"> {{$socialUrl1}}
                                 </a>
                                 
                             </h3>                                    
 
                             <h3>
                                 <a href="{{$socialUrl2}}" target="_blank" rel="noopener noreferrer">
-                                    <img src="{{ asset('/img/instagram.webp') }}" class="socialIconsView"
-                                style="" alt="image preview"> {{$socialUrl2}}
+                                    <img src="{{ asset('/img/instagram.webp') }}" class="socialIcons"
+                                style="height:min-content; width:10%;" alt="image preview"> {{$socialUrl2}}
                                 </a>                              
                             </h3> 
 
                             <h3>
                                 <a href="{{$socialUrl3}}" target="_blank" rel="noopener noreferrer">
-                                    <img src="{{ asset('/img/github.webp') }}" class="socialIconsView"
-                                style="" alt="image preview"> {{$socialUrl3}}
+                                    <img src="{{ asset('/img/github.webp') }}" class="socialIcons"
+                                style="height:min-content; width:10%;" alt="image preview"> {{$socialUrl3}}
                                 </a>                               
                             </h3> 
                             
                             <h3>
                                 <a href="{{$socialUrl4}}" target="_blank" rel="noopener noreferrer">
-                                    <img src="{{ asset('/img/email.webp') }}" class="socialIconsView"
-                                style="" alt="image preview"> {{$socialUrl4}}
+                                    <img src="{{ asset('/img/email.webp') }}" class="socialIcons"
+                                style="height:min-content; width:10%;" alt="image preview"> {{$socialUrl4}}
                                 </a>                              
                             </h3> 
                             
                             <h3>
                                 <a href="{{$socialUrl5}}" target="_blank" rel="noopener noreferrer">
-                                    <img src="{{ asset('/img/web.webp') }}" class="socialIconsView"
-                                style="" alt="image preview"> {{$socialUrl5}}
+                                    <img src="{{ asset('/img/web.webp') }}" class="socialIcons"
+                                style="height:min-content; width:10%;" alt="image preview"> {{$socialUrl5}}
                                 </a>                                
                             </h3> 
                         </div>
