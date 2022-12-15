@@ -57,6 +57,8 @@ class HomeController extends Controller
     
         $social_media = DB::select('select * from social_media where social_user_id = ?', [$id]) ;
 
+        // dd($social_media);
+
         $urlCard = url("/user-card");
 
         if(empty($social_media)){
@@ -69,6 +71,7 @@ class HomeController extends Controller
             $socialUrl1 = $social_media[0]->social_url1;
             $socialUrl2 = $social_media[0]->social_url2;
             $socialUrl3 = $social_media[0]->social_url3;
+            // dd($socialUrl3);
             $socialUrl4 = $social_media[0]->social_url4;
             $socialUrl5 = $social_media[0]->social_url5;
         }
@@ -114,6 +117,7 @@ class HomeController extends Controller
             $socialUrl1 = $social_media[0]->social_url1;
             $socialUrl2 = $social_media[0]->social_url2;
             $socialUrl3 = $social_media[0]->social_url3;
+            // dd($socialUrl3);
             $socialUrl4 = $social_media[0]->social_url4;
             $socialUrl5 = $social_media[0]->social_url5;
         }

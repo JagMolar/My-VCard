@@ -51,11 +51,15 @@
                                             <img src="{{ asset('/img/instagram.webp') }}" class="card-img"
                                             style="width: 90%;" alt="image preview">
                                         </a>
-                                        <a href="{{$socialUrl3}}" target="_blank" rel="noopener noreferrer">
+                                        {{-- <a href="{{$socialUrl3}}" target="_blank" rel="noopener noreferrer">
                                             <img src="{{ asset('/img/github.webp') }}" class="card-img"
                                             style="width: 90%;" alt="image preview">
+                                        </a> --}}
+                                        <a href="tel:+34{{$socialUrl3}}" target="_blank" rel="noopener noreferrer">
+                                            <img src="{{ asset('/img/tel-blue.webp') }}" class="card-img"
+                                            style="width: 90%;" alt="image preview">
                                         </a>
-                                        <a href="{{$socialUrl4}}" target="_blank" rel="noopener noreferrer">
+                                        <a href="mailto:{{$socialUrl4}}" target="_blank" rel="noopener noreferrer">
                                             <img src="{{ asset('/img/email.webp') }}" class="card-img"
                                             style="width: 90%;" alt="image preview">
                                         </a>

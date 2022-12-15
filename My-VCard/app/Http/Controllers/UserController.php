@@ -243,7 +243,8 @@ class UserController extends Controller
             'position'               => 'required | string ',
             'socialUrl1'             => 'nullable | url ',
             'socialUrl2'             => 'nullable | url ',
-            'socialUrl3'             => 'nullable | url ',
+            // 'socialUrl3'             => 'nullable | url ',
+            'socialUrl3'             => 'nullable | numeric | digits:9 ',
             'socialUrl4'             => 'nullable | email ',
             'socialUrl5'             => 'nullable | url ',
         ]);
@@ -286,11 +287,12 @@ class UserController extends Controller
                 $socialUrl1 = $request->socialUrl1;
                 $socialUrl2 = $request->socialUrl2;
                 $socialUrl3 = $request->socialUrl3;
+                // dd($socialUrl3);
                 $socialUrl4 = $request->socialUrl4;
                 $socialUrl5 = $request->socialUrl5;
 
                 $sql = 'SELECT social_user_id FROM social_media s JOIN users u ON u.id=s.social_user_id WHERE u.id='.$user->id;
-                
+                // dd($sql);
                 $social_media = DB::select($sql);
                
                 if(empty($social_media)){
@@ -298,7 +300,17 @@ class UserController extends Controller
              
                     $socialData = DB::insert($sqlSocial);
 
-                }           
+                } else {
+                    $sqlDelete = "DELETE FROM social_media WHERE social_user_id =".$user->id;
+                    // dd($sqlDelete);
+
+                    $socialDelete=  DB::delete($sqlDelete);
+                    //DELETE FROM social_media WHERE `social_media`.`social_id` = 3 AND `social_media`.`social_user_id` = 7"
+                    $sqlSocial = "INSERT INTO social_media (social_user_id,social_url1,social_url2,social_url3,social_url4,social_url5) VALUES (".$user->id.",'".$socialUrl1."','".$socialUrl2."','".$socialUrl3."','".$socialUrl4."','".$socialUrl5."')";
+                    // dd($sqlSocial);
+                    $socialData = DB::insert($sqlSocial);
+
+                }          
 
             $request->session()->flash('alert-success', 'Imagen de usuario actualizada correctamente!');
             return back()->with('success', 'User data updated!');

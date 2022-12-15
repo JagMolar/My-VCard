@@ -50,15 +50,21 @@
                                 </a>                              
                             </h3> 
 
-                            <h3>
+                            {{-- <h3>
                                 <a href="{{$socialUrl3}}" target="_blank" rel="noopener noreferrer">
                                     <img src="{{ asset('/img/github.webp') }}" class="socialIcons"
+                                style="height:min-content; width:10%;" alt="image preview"> {{$socialUrl3}}
+                                </a>                               
+                            </h3>  --}}
+                            <h3>
+                                <a href="tel:+34{{$socialUrl3}}" target="_blank" rel="noopener noreferrer">
+                                    <img src="{{ asset('/img/tel-blue.webp') }}" class="socialIcons"
                                 style="height:min-content; width:10%;" alt="image preview"> {{$socialUrl3}}
                                 </a>                               
                             </h3> 
                             
                             <h3>
-                                <a href="{{$socialUrl4}}" target="_blank" rel="noopener noreferrer">
+                                <a href="mailto:{{$socialUrl4}}" target="_blank" rel="noopener noreferrer">
                                     <img src="{{ asset('/img/email.webp') }}" class="socialIcons"
                                 style="height:min-content; width:10%;" alt="image preview"> {{$socialUrl4}}
                                 </a>                              

@@ -77,14 +77,20 @@
                                                 aria-describedby="urlHelp" value="{{$socialUrl2}}" required >
                                             <div id="emailHelp" class="form-text">Your choice 2 of 5.</div>
                                         </div>
-                                        <div class="mb-3">
+                                        {{-- <div class="mb-3">
                                             <label for="socialUrl3" class="form-label">Choose a Social Network</label>
                                             <input type="url" class="form-control" id="socialUrl3" name="socialUrl3"
                                                 aria-describedby="urlHelp" value="{{$socialUrl3}}" required >
                                             <div id="emailHelp" class="form-text">Your choice 3 of 5.</div>
+                                        </div> --}}
+                                        <div class="mb-3">
+                                            <label for="socialUrl3" class="form-label">Choose a phone number</label>
+                                            <input type="tel" class="form-control" id="socialUrl3" name="socialUrl3"
+                                                aria-describedby="telHelp" value="{{$socialUrl3}}" maxlength="9" required >
+                                            <div id="telHelp" class="form-text">Your choice 3 of 5.</div>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="socialUrl4" class="form-label">Choose a Social Network</label>
+                                            <label for="socialUrl4" class="form-label">Choose an Email</label>
                                             <input type="email" class="form-control" id="socialUrl4" name="socialUrl4"
                                                 aria-describedby="urlHelp" value="{{$socialUrl4}}" required >
                                             <div id="emailHelp" class="form-text">Your choice 4 of 5.</div>
@@ -162,11 +168,15 @@
                                             <img src="{{ asset('/img/instagram.webp') }}" class="card-img"
                                             style="width: 90%;" alt="image preview">
                                         </a>
-                                        <a href="{{$socialUrl3}}" target="_blank" rel="noopener noreferrer">
+                                        {{-- <a href="{{$socialUrl3}}" target="_blank" rel="noopener noreferrer">
                                             <img src="{{ asset('/img/github.webp') }}" class="card-img"
                                             style="width: 90%;" alt="image preview">
+                                        </a> --}}
+                                        <a href="tel:+34{{$socialUrl3}}" target="_blank" rel="noopener noreferrer">
+                                            <img src="{{ asset('/img/tel-blue.webp') }}" class="card-img"
+                                            style="width: 90%;" alt="image preview">
                                         </a>
-                                        <a href="{{$socialUrl4}}" target="_blank" rel="noopener noreferrer">
+                                        <a href="mailto:{{$socialUrl4}}" target="_blank" rel="noopener noreferrer">
                                             <img src="{{ asset('/img/email.webp') }}" class="card-img"
                                             style="width: 90%;" alt="image preview">
                                         </a>
